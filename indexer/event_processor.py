@@ -1,7 +1,7 @@
 import os
 import logging
 from dataclasses import dataclass
-from typing import Type, Optional, List
+from typing import Type, Optional, List, Dict, Any
 from contract.base_contract import BaseContract
 from contract.staking_info import StakingInfo
 from duckdb_integration import update_duckdb_from_parquet
@@ -23,7 +23,7 @@ class EventProcessorConfig:
 class EventProcessor:
     """Handles processing of blockchain events."""
     
-    def __init__(self, config: EventProcessorConfig, contract_class: Type[BaseContract] = StakingInfo):
+    def __init__(self, config: EventProcessorConfig, contract_class: Type[BaseContract] = StakingInfo) -> None:
         self.config = config
         self.w3 = get_web3_connection()
         self.contract_instance = contract_class()
@@ -44,7 +44,7 @@ class EventProcessor:
         if unsupported:
             raise ValueError(f"Unsupported events: {unsupported}")
 
-    def _process_event(self, event_name: str, event) -> Optional[dict]:
+    def _process_event(self, event_name: str, event: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """Process a single event."""
         try:
             event_dict = dict(event)
@@ -93,7 +93,7 @@ class EventProcessor:
         
         return end_block
 
-    def process_history(self):
+    def process_history(self) -> None:
         """Process the complete history of events."""
         logging.info(f"Fetching events for {self.config.target_address} from block {self.config.start_block}")
         logging.info(f"Processing events: {', '.join(self.event_names)}")
@@ -120,8 +120,8 @@ def process_contract_events(
     contract_address: str,
     event_names: List[str] = None,
     contract_class: Type[BaseContract] = StakingInfo,
-    **kwargs
-):
+    **kwargs: Any
+) -> None:
     """
     Process events from a contract
     

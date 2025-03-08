@@ -6,7 +6,6 @@ class StakingInfo(BaseContract):
     """Class encapsulating StakingInfo contract data and schemas."""
     CONTRACT_ADDRESS = "0xa59C847Bd5aC0172Ff4FE912C5d29E5A71A7512B"
     
-    # Event definitions
     DELEGATOR_CLAIMED_REWARDS = "DelegatorClaimedRewards"
     
     # ABI for all events from StakingInfo
