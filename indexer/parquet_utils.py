@@ -12,10 +12,10 @@ def write_events_to_parquet(filepath: str, events: List[Dict[str, Any]], schema:
     if events:
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
         
-        logging.info(f"  Writing {len(events)} events to parquet file (TEMP): {filepath}")
+        logging.info(f"Writing {len(events)} events to parquet file (TEMP): {filepath}")
         table = pa.Table.from_pylist(events, schema=schema)
         pq.write_table(table, filepath)
-        logging.info(f"  Parquet file written to TEMP directory: {filepath}")
+        logging.info(f"Parquet file written to TEMP directory: {filepath}")
         return True
     return False
 
