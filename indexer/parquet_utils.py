@@ -20,7 +20,6 @@ def write_events_to_parquet(filepath: str, events: List[Dict[str, Any]], schema:
     return False
 
 def generate_parquet_filepath(base_dir: str, start_block: int, end_block: int) -> str:
-    """Generates a Parquet filepath based on block range."""
     return os.path.join(base_dir, f"{start_block}_{end_block}.parquet")
 
 def setup_temporary_directory(base_dir: str, address: str, event_name: str) -> str:

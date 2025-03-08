@@ -1,17 +1,13 @@
 import logging
-from typing import NoReturn
 from environment import PROVIDER_URL, TARGET_ADDRESS
 from event_processor import EventProcessor, EventProcessorConfig
 from contract.staking_info import StakingInfo
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def main() -> NoReturn:
+def main() -> None:
     """
     Main function to run the reward claim history fetcher.
-    
-    Raises:
-        ValueError: If any required environment variables are not set.
     """
     if not PROVIDER_URL:
         raise ValueError("PROVIDER_URL is not set in environment")
