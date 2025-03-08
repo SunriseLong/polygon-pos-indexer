@@ -1,7 +1,6 @@
 import pytest
 from unittest.mock import Mock, patch
 from web3 import Web3
-# ConnectionError is a built-in exception
 
 from indexer.web3_utils import get_web3_connection, get_contract_instance, fetch_events_in_range
 
