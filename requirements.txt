@@ -1,0 +1,7 @@
+web3
+SQLAlchemy
+python-dotenv
+pyarrow
+duckdb
+pytest>=7.0.0
+pytest-mock>=3.10.0
