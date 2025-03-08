@@ -1,12 +1,12 @@
 # polygon-pos-indexer
 
-A blockchain indexerthat follows functional data engineer principles for reliable and idempotent data processing.
+A blockchain indexer that follows functional data engineer principles for reliable and idempotent data processing.
 
 ## Architecture & Design Principles
 The application parses relevant events from a target contract and generates parquet files. DuckDB is the SQL access layer which directly reads the parquet files. DuckDB supports predicate pushdown and query pruning to limit data accessed. Polygon delegrate reward claims has been implemented.
 
 ### Data Model
-Partitions are stored as Parquet files, organized by block ranges, providing:
+Partitions are stored as Parquet files, organized by event type, wallet address and block ranges, providing:
 - [A persistent immutable staging area](https://medium.com/p/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a?source=social.tw )
 - Easy parallel processing capabilities for real time and backfills
 - Defines table partitions as immutable objects to ensure idempotent runs
@@ -40,6 +40,8 @@ Running the same wallet will overwrite previous results. Becareful running the s
 ```bash
 make run
 ```
+<img width="394" alt="image" src="https://github.com/user-attachments/assets/1c9e6f7b-b339-4357-b77e-fb0606b4db94" />
+
 
 ### Development Environment
 ```bash
@@ -61,4 +63,6 @@ duckdb duckdb polygon_pos.duckdb
 ```sql
 SELECT * FROM delegator_claimed_rewards LIMIT 10
 ```
+<img width="875" alt="image" src="https://github.com/user-attachments/assets/ebf117f8-8446-429a-bb4b-432646d29235" />
+
 
