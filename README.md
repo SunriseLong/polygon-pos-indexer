@@ -71,3 +71,15 @@ duckdb duckdb polygon_pos.duckdb
 SELECT * FROM delegator_claimed_rewards LIMIT 10
 ```
 <img width="875" alt="image" src="https://github.com/user-attachments/assets/ebf117f8-8446-429a-bb4b-432646d29235" />
+
+### Run Tests
+From within the container shell:
+```bash
+python -m pytest tests/ -v
+```
+
+OR from the terminal:
+```bash
+make test
+```
+

@@ -29,4 +29,4 @@ stop:
 	-docker rm "$(CONTAINER_NAME)-shell" 2>/dev/null || true
 	@echo "Removed interactive shell container (if existed)."
 
-.PHONY: build run shell stop test test-coverage
+.PHONY: build run shell stop test
