@@ -20,7 +20,7 @@ def main() -> None:
         target_address=TARGET_ADDRESS,
         contract_address=StakingInfo.CONTRACT_ADDRESS,
         # Optionally override defaults:
-        start_block=19000000,
+        # start_block=19000000,
         # event_names=["DelegatorClaimedRewards"],
         # block_increment=1000000,
         # output_dir="delegator_claimed_rewards"
