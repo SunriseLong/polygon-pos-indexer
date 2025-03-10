@@ -1,7 +1,6 @@
-web3
-SQLAlchemy
-python-dotenv
-pyarrow
-duckdb
-pytest>=7.0.0
-pytest-mock>=3.10.0
+web3==7.8.0
+python-dotenv==1.0.1
+pyarrow==19.0.1
+duckdb==1.2.1
+pytest==8.3.5
+pytest-mock==3.14.0
